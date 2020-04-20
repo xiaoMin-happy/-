@@ -28,15 +28,7 @@ r = requests.get(url,params=None,**kwargs)
 | r.apparent_encoding | 根据网页的内容，分析出的响应编码方式（备选编码方式）    |
 | r.content           | HTTP响应内容的二进制形式                                |
 
-```flow
-A=>operation: r
-con=>condition: r.status_code?
-B=>operation: r.text,r.encoding, r.apparent_encoding, r.content
-D=>operation: 访问异常
-A->con
-con(200)->B
-con(404或其他)->D
-```
+![爬虫基本流程](https://user-images.githubusercontent.com/62495140/79755806-3fd68d00-834c-11ea-8622-5f099fbc82fa.jpg)
 
 #### （2）Response的编码
 
