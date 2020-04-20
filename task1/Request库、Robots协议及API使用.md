@@ -252,6 +252,13 @@ requests.request(method, url, **kwargs)
 
 9. proxies：字典类型，设定访问代理服务器，可以增加登陆认证
 
+    ```python
+    >>> pxs = {'http': 'http://user:pass@10.10.10.1:1234' , 'https': 'https://10.10.10.4321'}
+    >>> r = requests.request('GET', 'http://www.baidu.com', proxies=pxs)
+    # 增加一个http访问时的代理服务器地址，在代理中可以增加用户名和密码
+    # 增加一个https的代理，在访问百度时使用的是代理服务器的IP地址，防止对爬虫的逆追踪
+    ```
+
 10. allow_redirects：True/False，默认为True，重定向开关
 
 11. stream：True/False，默认为True，获取内容立即下载开关
