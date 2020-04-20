@@ -28,11 +28,14 @@ r = requests.get(url,params=None,**kwargs)
 | r.apparent_encoding | 根据网页的内容，分析出的响应编码方式（备选编码方式）    |
 | r.content           | HTTP响应内容的二进制形式                                |
 
-```mermaid
-graph LR
-    A[r]-->B[r.status_code]
-    B--200-->D[r.text,r.encoding, r.apparent_encoding, r.content]
-    B--404或其他-->E[访问异常]
+```flow
+A=>operation: r
+con=>condition: r.status_code?
+B=>operation: r.text,r.encoding, r.apparent_encoding, r.content
+D=>operation: 访问异常
+A->con
+con(200)->B
+con(404或其他)->D
 ```
 
 #### （2）Response的编码
