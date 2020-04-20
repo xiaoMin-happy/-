@@ -30,12 +30,9 @@ r = requests.get(url,params=None,**kwargs)
 
 ```mermaid
 graph LR
-
-A[r]-->B[r.status_code]
-
-B--200-->D[r.text,r.encoding, r.apparent_encoding, r.content]
-
-B--404或其他-->E[访问异常]
+    A[r]-->B[r.status_code]
+    B--200-->D[r.text,r.encoding, r.apparent_encoding, r.content]
+    B--404或其他-->E[访问异常]
 ```
 
 #### （2）Response的编码
