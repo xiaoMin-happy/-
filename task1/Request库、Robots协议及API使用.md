@@ -314,7 +314,7 @@ Robots协议是建议但非约束性，网络爬虫可以不遵守，但是存�
 
 - 网络数据的采集不一定通过网页抓取数据，也可以用过API。
 
-- API（Application Programming Iterface）为开发着提供一种方便友好的接口，不同的开发者用不同的语言都能获得相同的数据。
+- API（Application Programming Iterface）为开发者提供一种方便友好的接口，不同的开发者用不同的语言都能获得相同的数据。
 
 - API会以XML或JSON格式来返回服务器的响应。
 
