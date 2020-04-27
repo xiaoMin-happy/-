@@ -118,3 +118,14 @@ myDynamicElement = driver.find_element_by_id("myDynamic")
 
 
 
+## 三、BeautifulSoup、Re、Xpath和selenium
+
+- BeautifulSoup：主要用于静态网页，将html解析为soup对象，再去提取标签树中的目标信息。匹配效率还是远远不如正则以及xpath的，一般不推荐使用，推荐正则的使用；
+
+- Re正则化：re正则表达式方法可直接在html文本中查找，不需要像bs4一样先解析html再查找；
+
+- Xpath：把html文档解析为xml对象，通过Xpath路径提取节点树中的目标信息；
+
+- selenium：主要用于动态网页，速度很慢，selenium通过创建一个WebDriver实例直接运行在浏览器，然后模拟人在浏览器的操作，并提取目标信息，可以跳过网页的JS反爬和加密反爬；
+
+
