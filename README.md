@@ -6,4 +6,4 @@
 
 参考：北京理工嵩天教授的python网络爬虫与信息提取课程
 
-     <https://github.com/datawhalechina/team-learning>
+   <https://github.com/datawhalechina/team-learning>
