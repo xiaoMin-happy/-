@@ -5,4 +5,5 @@
 ## task4: 了解ajax、爬取腾讯新闻热点精选
 
 参考：北京理工嵩天教授的python网络爬虫与信息提取课程
+
      <https://github.com/datawhalechina/team-learning>
