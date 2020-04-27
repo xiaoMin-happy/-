@@ -24,31 +24,30 @@
 
   ![b站](https://user-images.githubusercontent.com/62495140/80281476-ff0cb880-873d-11ea-85bd-81fefd1dac71.jpg)
 
-  
 
 ## 二. selenium的使用
 
 ### 1. 基本使用
 
-导入模块
+- 创建一个WebDriver实例
+
 
 ```python
-from selenium import webdriver   # 启动浏览器
+from selenium import webdriver   # 导入模块
+driver = webdriverwebdriver.Chrome()  # 打开浏览器
 ```
 
-创建一个WebDriver实例
+- 打开一个页面
 
-```python
-driver = webdriverwebdriver.Chrome()
-```
-
-打开一个页面
 
 ```python
 driver.get("http://www.python.org") #chromedriver会打开一个chrome浏览器窗口，显示的是网址对应的页面
+driver.get(r"C:\desktop\text.html")      # 打开本地 html页面
+driver.title          # 获取打开网址 的名字 
 ```
 
-关闭页面
+- 关闭页面
+
 
 ```python
 driver.close()  # 关闭浏览器一个Tab
@@ -56,22 +55,63 @@ driver.close()  # 关闭浏览器一个Tab
 driver.quit()   # 关闭浏览器窗口
 ```
 
-### 2. 查找元素
+### 2. 定位元素
 
 ```python
-element = driver.find_element_by_name("q")   # 查找name为“q”的tag
+element = driver.find_element_by_id("site-map-link")   #  定位id为“site-map-link"的元素
+element = driver.find_element_by_name("q")   # 定位name为“q”的元素
+element = chrome_obj.find_element_by_link_text("a标签中的链接内容 准确定位") 
+```
+
+在日常的网页源码中，我们基于元素的**id**去定位是最万无一失的，id在单个页面中是不会重复的。但是实际工作中，很多前端开发人员并未给每个元素都编写id属性。
+
+- 基于class属性来定位元素
+
+```python
+driver.find_element_by_class_name("classname")
+# 很多并列的元素如list表单，class都是共用同一个，使用如下方法可返回一个list列表
+driver.find_elements_by_class_name("classname")[n]   #注意：是elements，不是element
+```
+
+- 基于xpath来定位元素最灵活
+
+```python
+driver.find_element_by_xpath("xpath路径")
 ```
 
 ### 3. 页面交互
 
-找到元素后就是进行交互，如键盘输入，需要提前导入模块
+```python
+driver.maximize_window() # 窗口最大化 
+driver.back() # 模拟浏览器返回上一个浏览页面
+```
+
+#### （1）模拟鼠标操作
+
+需要提前导入模块
+
+```python
+from selenium.webdriver.common.action_chains import ActionChains  # 导入模块
+
+element = chrome_obj.find_element_by_link_text("点我 悬浮 显示其他 a标签") #定位到含有点击连接的tag
+element.click()   # 模拟用户点击
+```
+
+#### （2）模拟键盘操作
+
+需要提前导入模块
 
 ```python
 from selenium.webdriver.common.keys import Keys  # 提供键盘按键支持
 
-element.send_keys("some text")   # 向查找元素的对象输入
+element.send_keys("some text")   # 向element标签中输入内容"some text"
 
-element.send_keys(Keys.RETURN)  # 模拟键盘回车
+element.send_keys(Keys.BACK_SPANCE)  # 退格键
+element.send_keys(Keys.CONTRL,'a')  # 全选
+element.send_keys(Keys.CONTRL,'v')  # 粘贴
+element.send_keys(Keys.CONTRL,'c')  # 复制
+element.send_keys(Keys.CONTRL,'x‘) # 剪切
+element.send_keys(Keys.RETURN)  # 回车
 
 element.clear()  # 清空element对象中的文字（文本框中的文字）
 ```
@@ -116,8 +156,6 @@ driver.get("https://www.bilibili.com")
 myDynamicElement = driver.find_element_by_id("myDynamic")
 ```
 
-
-
 ## 三、BeautifulSoup、Re、Xpath和selenium
 
 - BeautifulSoup：主要用于静态网页，将html解析为soup对象，再去提取标签树中的目标信息。匹配效率还是远远不如正则以及xpath的，一般不推荐使用，推荐正则的使用；
@@ -127,5 +165,3 @@ myDynamicElement = driver.find_element_by_id("myDynamic")
 - Xpath：把html文档解析为xml对象，通过Xpath路径提取节点树中的目标信息；
 
 - selenium：主要用于动态网页，速度很慢，selenium通过创建一个WebDriver实例直接运行在浏览器，然后模拟人在浏览器的操作，并提取目标信息，可以跳过网页的JS反爬和加密反爬；
-
-

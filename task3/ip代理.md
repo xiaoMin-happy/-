@@ -24,7 +24,7 @@
 
 ###  3. ip_list.append(f'{protpcol}://{ip}:{port}')这里的f是格式化？
 
-- 从代理ip网站爬取*IP*地址及端口号并储存
+- 从代理ip网站爬取ip地址及端口号并储存
 - 验证ip是否能用
 - 格式化ip地址
 - 在requests中使用代理ip爬取网站

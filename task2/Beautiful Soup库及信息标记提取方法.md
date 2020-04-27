@@ -73,7 +73,7 @@
 
 后四个均针对标签。**标签**的基本结构如下：
 
-<img src="https://user-images.githubusercontent.com/62495140/79937350-3a805c00-848c-11ea-9d53-6a10adfea341.jpg" alt="标签的基本结构" style="zoom:67%;" />
+![标签树](https://user-images.githubusercontent.com/62495140/79937350-3a805c00-848c-11ea-9d53-6a10adfea341.jpg)
 
 - <tag>=soup.tag
 
@@ -91,7 +91,6 @@
 ```python
 >>> soup.a.name
  'a'
-  
 ```
 
 - <tag>.attrs
@@ -138,7 +137,7 @@
 
 标签树的遍历方法有三种：
 
-<img src="https://user-images.githubusercontent.com/62495140/79947815-37459a00-84a5-11ea-8af7-452af9486cf0.jpg" alt="遍历" style="zoom:67%;" />
+![遍历](https://user-images.githubusercontent.com/62495140/79947815-37459a00-84a5-11ea-8af7-452af9486cf0.jpg)
 
 #### （1） 下行遍历
 
@@ -421,8 +420,8 @@ YAML举例：
 firstName: Tian
 lastName : Song
 address  :
-	stressAddr: 中关村南大街5号
-	city	    : 北京市
+    stressAddr: 中关村南大街5号
+    city	    : 北京市
 prof     : 
 -Computer System
 -Security
